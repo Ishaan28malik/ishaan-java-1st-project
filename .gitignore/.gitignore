@@ -1,0 +1,141 @@
+package medicines;
+import java.util.*;
+
+import com.sun.xml.internal.bind.v2.runtime.Name;
+public class Order
+{	
+	
+	static int choice;
+	
+	
+	void introDisplay()
+	{	System.out.println("welcome to our medical store \n"+"what is your issue");
+		System.out.println("\n 1.fever"+"\n 2.common cold"+"\n 3.headache"+"\n 4.indigestion"+"\n 5.cough"+"\n 6.eye infection");
+		
+	}
+	public Order()
+	{
+		//int i;
+		//String medicine=null;
+	}
+	public static void main(String []args)
+	{	Order o=new Order();
+		tablets t=new tablets();
+		syrups s=new syrups();
+		drops d=new drops();
+		char inp;
+		
+		do{
+		o.introDisplay();
+		Scanner in=new Scanner(System.in);
+		choice=in.nextInt();
+		
+		switch(choice)
+		{
+			case 1:{	System.out.println("For fever you get \n "+t.getTabletname(choice)+" for Rs. "+t.getTabletprice(choice)+"\n this cost is for a dose of 3 days ");
+						break;
+			        }	
+		 	case 2:{
+		 		System.out.println("For common cold you get\n "+t.getTabletname(choice)+" for Rs. "+t.getTabletprice(choice)+"\n this cost is for a dose of 3 days "+"\n and " +s.getSyrupname(choice)+"\nfor Rs"+s.getSyrupprice(choice)+"the amount is for 1 bottle");
+		 				break;
+		 	}
+		 
+		 	case 3:{
+		 		System.out.println("For headache you get \n"+t.getTabletname(choice)+" for Rs. "+t.getTabletprice(choice)+"\n this cost is for a dose of 3 days ");
+		 				break;
+		 	}
+		 	case 4:{
+		 		System.out.println("For indigestion you get\n "+t.getTabletname(choice)+" for Rs. "+t.getTabletprice(choice)+"\n this cost is for a dose of 3 days ");
+		 				break;
+		 	}
+		 	case 5:{
+		 		System.out.println("For cough you get\n "+t.getTabletname(choice)+" for Rs. "+t.getTabletprice(choice)+"\n this cost is for a dose of 3 days "+"\n and"+s.getSyrupname(choice)+"for Rs"+s.getSyrupprice(choice)+"the amount is for 1 bottle");
+		 				break;
+		 	}
+		 	case 6:{
+		 		System.out.println("For eye infection you get\n "+d.getDropsname(choice)+" for Rs. "+d.getDropsprice(choice)+"the amount is for 1 bottle");
+		 				break;
+		 	}
+		 	
+		}
+		
+		//Order a=new Order();
+	
+		
+			Scanner s1=new Scanner(System.in);
+			choice=s1.nextInt();
+			System.out.println(" \n Do you want to continue? (Y/ N)");
+			inp=s1.next().charAt(0);
+			
+		}while(inp=='y'||inp=='Y');
+	}		
+	}
+ class tablets 
+ {	String name[]=new String[5];
+ 	float price[]=new float[5];
+ 	
+	 
+	 tablets()
+	 {
+			name[0]=" Aspirin ";
+			name[1]=" Antihistamines. ";
+			name[2]=" Tyleno ";
+			name[3]=" Antacids ";
+			name[4]=" Pholcodine  ";
+			price[0]=100;
+			price[1]=70;
+			price[2]=150;
+			price[3]=200;
+			price[4]=210;
+		 
+	 }
+	 String getTabletname(int choice)
+	 {	return name[choice-1];
+	 }
+	 float getTabletprice(int choice)
+	 {
+		 return price[choice-1];
+	 }
+ }
+ class syrups 
+ {
+	 String name[]=new String[5];
+	 float price[]=new float[5];
+	syrups()
+	{
+		 name[1]="Codeine";
+		 name[4]="Zarbee ";
+		 price[1]=170;
+		 price[4]=210;
+	
+	}
+	String getSyrupname(int choice)
+	{
+		return name[choice-1];
+	}
+	float getSyrupprice(int choice)
+	{
+		return price[choice-1];
+	}
+ }
+ class drops 
+ {
+	 String name[]=new String[5];
+	 float price[]=new float[5];
+	 drops()
+	 {
+		 name[4]= "Opcon-A";
+		 price[4]=302;
+	 }
+	 String getDropsname(int choice)
+	 {
+		 return name[choice-1];
+	 }
+	 float getDropsprice(int choice)
+	 {
+		 return price[choice-1];
+	 }
+ }
+	
+	
+	 
